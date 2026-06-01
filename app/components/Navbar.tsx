@@ -11,7 +11,7 @@ export async function Navbar() {
       <div className="container pl-5">
         <h1 className="text-4xl font-bold">Link Up</h1>
       </div>
-      <div className="absolute top-6 right-25">
+      <div className="absolute top-2 right-5">
       <SignIn />
       </div>
     </nav>

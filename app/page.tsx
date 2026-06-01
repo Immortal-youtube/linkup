@@ -14,7 +14,7 @@ export default async function Home() {
 
       {!session ? (
         <div className="flex justify-center px-6 pt-5">
-          <p className="text-2xl mb-4 max-w-3xl text-center">
+          <p className="text-2xl mb-4 max-w-3xl leading-relaxed border-2 p-4 rounded-4xl bg-[#1E293B]">
             Link Up is a central hub designed by developers, for developers,
             tracking the latest tech breakthroughs and engineering insights.
             The platform strips away the noise of traditional social media,
@@ -26,7 +26,7 @@ export default async function Home() {
           </p>
         </div>
       ) : (
-        <div className="relative min-h-screen">
+        <div className="min-h-screen">
           {session.user?.image && (
             <img
               src={session.user.image}
@@ -41,11 +41,7 @@ export default async function Home() {
                 Welcome, {session.user?.name}!
               </h1>
             </div>
-            <div className="absolute bottom-6 left-6">
-              <p className="text-sm text-gray-400">
-                Logged in as {session.user?.email}
-              </p>
-            </div>
+            
           </section>
 
           <div className="flex justify-center px-6 pt-5">
@@ -53,7 +49,11 @@ export default async function Home() {
           </div>
 
           <PostFeed />
-          <SignOut />
+          <div className="bottom-6 flex justify-center left-6 pb-5">
+              <p className="text-sm text-gray-400">
+                Logged in as {session.user?.email}
+              </p>
+            </div>
         </div>
       )}
     </main>

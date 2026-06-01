@@ -13,6 +13,7 @@ interface Post {
 
 export function PostFeed() {
   const [posts, setPosts] = useState<Post[]>([])
+  
 
   // 1. Fetch initial posts on mount
   useEffect(() => {
@@ -21,8 +22,6 @@ export function PostFeed() {
             .from("posts")
             .select("*")
             .order("created", { ascending: false }) // Newest first
-            
-            
             
         if (data) setPosts(data)
         console.log("Fetched posts:", data)
@@ -46,14 +45,15 @@ export function PostFeed() {
     return () => {
       supabaseClient.removeChannel(channel)
     }
+
   }, [])
 
   return (
     <div className="flex justify-center px-6 pt-5">
 
     
-    <div className="w-6xl bg-[#0F172A] mx-auto mt-8 min-w-[75px] flex flex-col p-5 rounded gap-4">
-      <h2 className="text-xl font-bold text-white">Live Feed</h2>
+    <div className="w-6xl bg-[#0F172A] mx-auto mt-8 min-w-[300px] flex flex-col p-5 rounded gap-4">
+      <h2 className="text-xl font-bold text-white">🔴Live Feed</h2>
       {
       posts.length === 0 ? (
         <p className="text-gray-400 text-sm">No posts yet...</p>
@@ -67,6 +67,7 @@ export function PostFeed() {
             <p className="text-gray-300 mt-1 text-sm">{post.content}</p>
             <span className="text-xs text-purple-400 mt-2 block">By: {post.email}</span>
             <span className="text-xs text-purple-400 mt-2 block">Created: {new Date(post.created).toLocaleString()}</span>
+            
           </div>
         ))
       )}
