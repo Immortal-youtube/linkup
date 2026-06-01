@@ -14,7 +14,7 @@ export default async function Home() {
       <main className="relative min-h-screen bg-indigo-950 text-white overflow-hidden">
         <Navbar />
         <div className="flex justify-center px-6 pt-5">
-        <p className="text-4xl font-bold mb-4">You are not logged in.</p>
+        <p className="text-2xl mb-4 max-w-3xl text-center">Link Up is a central hub designed by developers, for developers, tracking the latest tech breakthroughs and engineering insights. The platform strips away the noise of traditional social media, offering a streamlined space where creators publish technical blogs, dissect new tools, and share real-world post-mortems. By combining real-time industry updates with deep-dive technical writing, Link Up serves as a living repository of knowledge that helps engineering teams stay ahead of the curve.</p>
         </div>
         <div className="flex justify-center px-6 pt-5">
         </div>
