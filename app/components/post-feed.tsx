@@ -52,7 +52,7 @@ export function PostFeed() {
     <div className="flex justify-center px-6 pt-5">
 
     
-    <div className="w-6xl bg-purple-900 mx-auto mt-8 min-w-[75px] flex flex-col p-5 rounded gap-4">
+    <div className="w-6xl bg-[#0F172A] mx-auto mt-8 min-w-[75px] flex flex-col p-5 rounded gap-4">
       <h2 className="text-xl font-bold text-white">Live Feed</h2>
       {
       posts.length === 0 ? (

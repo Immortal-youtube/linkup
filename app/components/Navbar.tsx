@@ -7,7 +7,7 @@ export async function Navbar() {
   const session = await auth()
   if(!session) {
     return (
-      <nav className="bg-indigo-800 text-white pt-4 pb-4 pl-2">
+      <nav className="bg-[#1E293B] text-white pt-4 pb-4 pl-2">
       <div className="container pl-5">
         <h1 className="text-4xl font-bold">Link Up</h1>
       </div>
@@ -18,7 +18,7 @@ export async function Navbar() {
     )
   }
   return (
-    <nav className="bg-indigo-800 text-white pt-4 pb-4 pl-2">
+    <nav className="bg-[#1E293B] text-white pt-4 pb-4 pl-2">
       <div className="container pl-5">
         <h1 className="text-4xl font-bold">Link Up</h1>
       </div>

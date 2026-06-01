@@ -11,7 +11,7 @@ export default async function Home() {
 
   if (!session) {
     return (
-      <main className="relative min-h-screen bg-indigo-950 text-white overflow-hidden">
+      <main className="relative min-h-screen bg-[#0F172A] text-white overflow-hidden">
         <Navbar />
         <div className="flex justify-center px-6 pt-5">
         <p className="text-2xl mb-4 max-w-3xl text-center">Link Up is a central hub designed by developers, for developers, tracking the latest tech breakthroughs and engineering insights. The platform strips away the noise of traditional social media, offering a streamlined space where creators publish technical blogs, dissect new tools, and share real-world post-mortems. By combining real-time industry updates with deep-dive technical writing, Link Up serves as a living repository of knowledge that helps engineering teams stay ahead of the curve.</p>
@@ -24,7 +24,7 @@ export default async function Home() {
     )
   }
   return (
-    <div className="relative min-h-screen bg-indigo-950 text-white overflow-hidden">
+    <div className="relative min-h-screen bg-[#0F172A] text-white overflow-hidden">
       <Navbar />
       {session.user?.image && (
         <img
@@ -36,7 +36,7 @@ export default async function Home() {
       )}
       <div>
       <main className="flex justify-center px-6 pt-5">
-        <div className="text-center">
+        <div className="w-full max-w-6xl">
           <h1 className="text-5xl font-bold mb-4">Welcome, {session.user?.name}!</h1>
           
         </div>

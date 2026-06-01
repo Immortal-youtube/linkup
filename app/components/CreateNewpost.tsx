@@ -7,8 +7,8 @@ interface CreatePostFormProps {
 
 export function CreateNewPost({ userEmail }: CreatePostFormProps) {
   return (
-    <div className="bg-purple-900 text-white min-w-[300px] w-6xl p-4 rounded-lg shadow-md">
-      <h2 className="text-xl mb-4 font-bold">Create New Post</h2>
+    <div className="bg-[#1E293B] text-white min-w-[300px] w-6xl p-4 rounded-lg shadow-md">
+      <h2 className="text-xl mb-4 font-bold">📝 Create New Post</h2>
       <form className="mt-4 flex flex-col" action={createPost}>
         <input type="hidden" name="userEmail" value={userEmail} />
         <input
