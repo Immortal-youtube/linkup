@@ -36,7 +36,7 @@ export default async function Home() {
           )}
 
           <section className="flex justify-center px-6 pt-5">
-            <div className="w-full max-w-6xl">
+            <div className="w-full text-center max-w-6xl">
               <h1 className="text-5xl font-bold mb-4">
                 Welcome, {session.user?.name}!
               </h1>
