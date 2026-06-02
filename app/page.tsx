@@ -51,7 +51,7 @@ export default async function Home() {
           <PostFeed />
           <div className="bottom-6 flex justify-center left-6 pb-5">
               <p className="text-sm text-gray-400">
-                Logged in as {session.user?.email}
+                Logged in as {session.user?.name}
               </p>
             </div>
         </div>

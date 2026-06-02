@@ -9,24 +9,47 @@ interface Post {
   content: string
   email: string
   created: string
+  username: string
+}
+
+interface Like {
+  email: string
+  UUID: string
 }
 
 export function PostFeed() {
   const [posts, setPosts] = useState<Post[]>([])
-  
+  const [likes, setLikes] = useState<Like[]>([]) // Placeholder for likes state
 
-  // 1. Fetch initial posts on mount
+  // 1. Fetch initial posts and likes on mount
   useEffect(() => {
-    const fetchPosts = async () => {
-        const { data, error } = await supabaseClient
-            .from("posts")
-            .select("*")
-            .order("created", { ascending: false }) // Newest first
-            
-        if (data) setPosts(data)
-        console.log("Fetched posts:", data)
+    const fetchData = async () => {
+      const { data, error } = await supabaseClient
+        .from("posts")
+        .select("*")
+        .order("created", { ascending: false }) // Newest first
+
+      if (error) {
+        console.error("Posts query error:", error)
+      }
+      if (data) setPosts(data)
+      console.log("Fetched posts:", data)
+      
     }
-    fetchPosts()
+
+    // const fetchLikes = async () => {
+    //   const { data, error } = await supabaseClient
+    //     .from("likes")
+    //     .select("*")
+    //   if (error) {
+    //     console.error("Likes query error:", error)
+    //   }
+    //   if (data) setLikes(data)
+    //   console.log("Fetched likes:", data)
+    // }
+
+    fetchData()
+    // fetchLikes()
 
     // 2. Open the WebSocket channel for changes
     const channel = supabaseClient
@@ -52,8 +75,11 @@ export function PostFeed() {
     <div className="flex justify-center px-6 pt-5">
 
     
-    <div className="w-6xl bg-[#0F172A] mx-auto mt-8 min-w-[300px] flex flex-col p-5 rounded gap-4">
-      <h2 className="text-xl font-bold text-white">🔴Live Feed</h2>
+    <div className="w-6xl bg-[#0F172A] mx-auto mt-8 min-w-75 flex flex-col p-5 rounded gap-4">
+      <div className="flex items-center justify-between gap-4">
+        <h2 className="text-xl font-bold text-white">🔴Live Feed</h2>
+        {/* <span className="text-sm text-gray-400">Likes fetched: {likes.length}</span> */}
+      </div>
       {
       posts.length === 0 ? (
         <p className="text-gray-400 text-sm">No posts yet...</p>
@@ -65,9 +91,10 @@ export function PostFeed() {
           >
             <h3 className="text-lg font-semibold text-white">{post.title}</h3>
             <p className="text-gray-300 mt-1 text-sm">{post.content}</p>
-            <span className="text-xs text-purple-400 mt-2 block">By: {post.email}</span>
-            <span className="text-xs text-purple-400 mt-2 block">Created: {new Date(post.created).toLocaleString()}</span>
-            
+            <div className="mt-3 flex gap-4">
+            <span className="text-xs text-purple-400 mt-2 block">By: {post.username}</span>
+            <span className="text-xs text-purple-400 mt-2 block">Created: {new Date(post.created).toDateString()}</span>
+            </div>
           </div>
         ))
       )}
