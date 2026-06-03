@@ -45,7 +45,7 @@ export default async function Home() {
           </section>
 
           <div className="flex justify-center px-6 pt-5">
-            <CreateNewPost userEmail={session.user?.email || ""} />
+            <CreateNewPost username={session.user?.githubUsername} userEmail={session.user?.email} />
           </div>
 
           <PostFeed />

@@ -23,6 +23,7 @@ export async function createPost(formData: FormData) {
   const title = formData.get("title") as string
   const content = formData.get("content") as string
   const email = formData.get("userEmail") as string
+  const username = formData.get("username") as string
   const created = new Date().toISOString()
   const UUID = crypto.randomUUID() // Generate a unique ID for the post
 
@@ -37,7 +38,8 @@ export async function createPost(formData: FormData) {
     content,
     email,
     created,
-    UUID
+    UUID,
+    username
     // Links the post to this exact user
   })
 
